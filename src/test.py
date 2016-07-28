@@ -7,12 +7,10 @@ The Edit Screen draws a grid and allows zooming.
 import os # Used for os.environ.
 import sys # Used for sys.exit.
 import random # Used for random.randint.
-import constants # Used for random.randint.
+import constants # constants.py
 
 import pygame as pg # I abbreviate pygame as pg for brevity.
 
-CAPTION = "Edit Screen"
-SCREEN_SIZE = (500, 500)
 
 class App(object):
     """
@@ -66,8 +64,8 @@ def main():
     """
     os.environ['SDL_VIDEO_CENTERED'] = '1' # Center the window (optional).
     pg.init() # Initialize Pygame.
-    pg.display.set_caption(CAPTION) # Set the caption for the window.
-    pg.display.set_mode(SCREEN_SIZE) # Prepare the screen.
+    pg.display.set_caption(constants.CAPTION) # Set the caption for the window.
+    pg.display.set_mode(constants.SCREEN_SIZE) # Prepare the screen.
     App().main_loop()
     pg.quit()
     sys.exit()
