@@ -1,27 +1,18 @@
 #! /usr/bin/env python
 
 """
-hi
-This example serves as a basics introduction.
-Change the screen color with a mouse click.
-
-This program is intentionally over-commented to serve as an introduction for
-those with no knowledge of pygame. More advanced examples will not adhere to
-this convention.
-
--Written by Sean J. McKiernan 'Mekire'
+The Edit Screen draws a grid and allows zooming.
 """
 
 import os # Used for os.environ.
 import sys # Used for sys.exit.
 import random # Used for random.randint.
+import constants # Used for random.randint.
 
 import pygame as pg # I abbreviate pygame as pg for brevity.
 
-
-CAPTION = "Click to Change My Color"
+CAPTION = "Edit Screen"
 SCREEN_SIZE = (500, 500)
-
 
 class App(object):
     """
