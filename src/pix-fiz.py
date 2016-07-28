@@ -1,3 +1,5 @@
+#! /usr/bin/env python2
+
 # Here's what we run when we start the game!  It initializes important things such
 # as the window settings and it runs the main loop of the game.
 
@@ -15,7 +17,8 @@ class PixFiz(object):
 		self.background = self.tile_bg()
 		self.screen = pg.display.set_mode((600,400))
 		self.clock = pg.time.Clock()
-		self.menu = Menu()
+
+
 		
 
 	def main_loop(self):
@@ -25,13 +28,11 @@ class PixFiz(object):
 				if event.type == pg.QUIT:
 					self.mainLoop = False
 			self.screen.blit(self.background, (0,0))
-			self.menu.draw(self.screen)
+
 
 			pg.display.flip()
 			milliseconds = self.clock.tick(FPS)
 			pg.display.set_caption("FPS: " + str(self.clock.get_fps()))
-
-	
 
 	def tile_bg(self): #makes the transparent image to use as a bg.
 		bg = pg.image.load("back.png")
