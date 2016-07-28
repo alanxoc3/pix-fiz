@@ -1,12 +1,14 @@
 import socket
 
 s = socket.socket()
-
-print "host name is ", socket.gethostname()
-
 host = socket.gethostname()
-port = 12345
+host_ip = "172.17.39.61"
 
-s.connect((host, port))
+print "host name is ", host
+print "host ip address is ", host_ip
+
+port = 12345
+s.connect((host_ip, port))
+
 print s.recv(1024)
 s.close
