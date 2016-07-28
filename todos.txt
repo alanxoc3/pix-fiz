@@ -1,7 +1,21 @@
 Here are our goals:
 
-TODO: Main Menu (with add and join)
-TODO: Draw with black squares
+Classes: Game/ Main - starts the game and creates 
+	 Server Controller - can be clicked on to host a game or connect to a game.
+	 Game Menu - That triangle in the corner can do a lot.
+
+	 Edit Screen - makes the grid and makes it editable and zoomable
+	 Pixel Map - holds the pixel arrays
+	 Dialog Box - does many things including the most-important loading box
+
+	 Player - moves in game
+	 Pixel Group - used to represent the pixels in game.
+
+
+
+
+Main Menu (with add and join)
+TODO: Draw with black square 
 TODO: Zooming out and in
 TODO: Draw grid
 TODO: Transparent Bkgd
