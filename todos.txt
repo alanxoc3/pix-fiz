@@ -1,3 +1,6 @@
+pygame good book thing.
+http://thepythongamebook.com/en:pygame:step002
+
 Here are our goals:
 
 Classes: Game/ Main - starts the game and creates 

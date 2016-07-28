@@ -11,6 +11,16 @@ import constants # constants.py
 
 import pygame as pg # I abbreviate pygame as pg for brevity.
 
+class EditScreen():
+	"""
+	The screen that controls zooming, a grid, a mouse, and other things.
+	"""
+
+	def __init():
+		"""
+		The screen that controls zooming, a grid, a mouse, and other things.
+		"""
+		
 
 class App(object):
     """
