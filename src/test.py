@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 """
+hi
 This example serves as a basics introduction.
 Change the screen color with a mouse click.
 
