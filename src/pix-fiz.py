@@ -1,8 +1,10 @@
 # Here's what we run when we start the game!  It initializes important things such
 # as the window settings and it runs the main loop of the game.
 
+from menu import Menu
 import pygame as pg
 import sys
+
 
 FPS = 60
 
@@ -13,6 +15,7 @@ class PixFiz(object):
 		self.background = self.tile_bg()
 		self.screen = pg.display.set_mode((600,400))
 		self.clock = pg.time.Clock()
+		self.menu = Menu()
 		
 
 	def main_loop(self):
@@ -22,9 +25,11 @@ class PixFiz(object):
 				if event.type == pg.QUIT:
 					self.mainLoop = False
 			self.screen.blit(self.background, (0,0))
+			self.menu.draw(self.screen)
+
 			pg.display.flip()
 			milliseconds = self.clock.tick(FPS)
-			pg.display.set_caption("FPS: ",  str(self.clock.get_fps()))
+			pg.display.set_caption("FPS: " + str(self.clock.get_fps()))
 
 	
 
