@@ -1,19 +1,18 @@
 # Following a tutorial
 import pygame
 import sys
-from enum import Enum
 
 FPS = 60
 DIM = (600,400)
 
-class Dir(Enum):
+class Dir(object):
 	#up, down, left, right = (0, 1, 2, 3)
 	up = 0
 	down = 1
 	left = 2
 	right = 3
 
-class KeyState(Enum):
+class KeyState(object):
 	#up, down, left, right = (0, 1, 2, 3)
 	none = 0
 	released = 1
