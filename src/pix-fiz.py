@@ -1,0 +1,43 @@
+# Here's what we run when we start the game!  It initializes important things such
+# as the window settings and it runs the main loop of the game.
+
+import pygame
+import sys
+
+FPS = 60
+
+class PixFiz(object):
+
+	def __init__(self):
+		pygame.init()
+		self.background = self.tile_bg()
+		self.screen = pygame.display.set_mode((600,400))
+		self.clock = pygame.time.Clock()
+		
+
+	def main_loop(self):
+		self.mainLoop = True
+		while self.mainLoop:
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					self.mainLoop = False
+			self.screen.blit(self.background, (0,0))
+			pygame.display.flip()
+			milliseconds = self.clock.tick(FPS)
+			pygame.display.set_caption("FPS: ",  str(self.clock.get_fps()))
+
+	
+
+	def tile_bg(self): #makes the transparent image to use as a bg.
+		bg = pygame.image.load("back.png")
+		trans_back = pygame.Surface((600,400))
+	
+		for i in xrange(0, 600, 32):
+			for j in xrange(0, 400, 32):
+				trans_back.blit(bg,(i, j))
+		return trans_back
+
+
+if __name__ == "__main__":
+	p = PixFiz() #inits
+	p.main_loop() #loops
