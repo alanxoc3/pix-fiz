@@ -2,7 +2,7 @@ import socket
 
 s = socket.socket()
 host = socket.gethostname()
-host_ip = "172.17.39.61"
+host_ip = socket.gethostbyname(host)
 
 print "host name is ", host
 print "host ip address is ", host_ip
