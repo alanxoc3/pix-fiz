@@ -1,0 +1,15 @@
+Here are our goals:
+
+TODO: Main Menu (with add and join)
+TODO: Draw with black squares
+TODO: Zooming out and in
+TODO: Draw grid
+TODO: Transparent Bkgd
+TODO: Corner Menu
+TODO: Player Spawn Tool
+TODO: Loading screen
+TODO: Move in a cool way to the loading screen
+TODO: Draw player
+TODO: Create Pixel objects
+TODO: Networking with editing
+TODO: Play platformer
