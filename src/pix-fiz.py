@@ -9,7 +9,6 @@ from grid import Grid
 import pygame as pg
 import sys
 
-
 FPS = 60
 
 class PixFiz(object):
@@ -21,7 +20,6 @@ class PixFiz(object):
 		self.clock = pg.time.Clock()
 		self.menu = Menu()
 		self.grid = Grid()
-		
 
 	def main_loop(self):
 		self.mainLoop = True
@@ -34,7 +32,7 @@ class PixFiz(object):
 				elif event.type == pg.MOUSEBUTTONDOWN:
 					print "mouse button down"
 					print event.pos
-#					self.grid.mouse_click(event.pos)
+					self.grid.mouse_click(event.pos)
 
 
 			#draw events
