@@ -2,6 +2,9 @@ import socket
 
 s = socket.socket()
 host = socket.gethostname()
+
+print "host name is ", socket.gethostname()
+
 port = 12345
 s.bind((host, port))
 
