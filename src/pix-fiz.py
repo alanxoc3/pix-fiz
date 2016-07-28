@@ -5,6 +5,7 @@
 
 from menu import Menu
 from grid import Grid
+#from drop_down import DropDown
 import pygame as pg
 import sys
 
@@ -30,7 +31,12 @@ class PixFiz(object):
 			for event in pg.event.get():
 				if event.type == pg.QUIT:
 					self.mainLoop = False
-			
+				elif event.type == pg.MOUSEBUTTONDOWN:
+					print "mouse button down"
+					print event.pos
+#					self.grid.mouse_click(event.pos)
+
+
 			#draw events
 			self.screen.blit(self.background, (0,0))
 			self.menu.draw(self.screen)
