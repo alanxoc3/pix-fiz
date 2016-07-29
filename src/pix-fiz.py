@@ -21,19 +21,23 @@ class PixFiz(object):
 		self.menu = Menu()
 		self.grid = Grid()
 
-	def main_loop(self):
-		self.mainLoop = True
-		while self.mainLoop:
-			
-			#key events
-			for event in pg.event.get():
-				if event.type == pg.QUIT:
-					self.mainLoop = False
-				elif event.type == pg.MOUSEBUTTONDOWN:
-					print "mouse button down"
-					print event.pos
-					self.grid.mouse_click(event.pos)
+	def input(self):
+		#key events
+		quit = False
+		for event in pg.event.get():
+			if event.type == pg.QUIT:
+				quit = True
+			elif event.type == pg.MOUSEBUTTONDOWN:
+				print "mouse button down"
+				print event.pos
+				self.grid.mouse_click(event.pos)
 
+		return quit
+
+	def main_loop(self):
+		quit = False
+		while not quit:
+			quit = self.input()
 
 			#draw events
 			self.screen.blit(self.background, (0,0))
