@@ -27,10 +27,18 @@ class PixFiz(object):
 		#key events
 		pixinput.update_input()
 
-		if pixinput.keys["MOUSE_MOVED"] == True:
+		if pixinput.keys["LEFT_CLICK_PRESSED"] == True:
 			self.grid.mouse_click(pg.mouse.get_pos())
+		if pixinput.keys["WHEEL_UP"] == True:
+			self.grid.zoom_in(pg.mouse.get_pos())
+		if pixinput.keys["WHEEL_DOWN"] == True:
+			self.grid.zoom_out(pg.mouse.get_pos())
 
-		return pixinput.keys["QUIT_PRESSED"]
+		if (pixinput.keys["MOUSE_MOVED"] & (pixinput.keys["LEFT_CLICK_ALT"] | pixinput.keys["MIDDLE_CLICK"]) == True):
+			rel = pixinput.m_rel
+			self.grid.pan(rel)
+
+		return pixinput.keys["QUIT"] | pixinput.keys["ESCAPE"]
 
 	def main_loop(self):
 		quit = False
@@ -62,4 +70,4 @@ class PixFiz(object):
 if __name__ == "__main__":
 	p = PixFiz() #inits
 	p.main_loop() #loops
-	
+
