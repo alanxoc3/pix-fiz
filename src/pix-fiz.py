@@ -8,6 +8,7 @@ from grid import Grid
 #from drop_down import DropDown
 import pygame as pg
 import sys
+import pixinput
 
 FPS = 60
 
@@ -23,28 +24,24 @@ class PixFiz(object):
 
 	def input(self):
 		#key events
-		quit = False
-		for event in pg.event.get():
-			if event.type == pg.QUIT:
-				quit = True
-			elif event.type == pg.MOUSEBUTTONDOWN:
-				print "mouse button down"
-				print event.pos
-				self.grid.mouse_click(event.pos)
+		pixinput.update_input()
 
-		return quit
+		if pixinput.keys["MOUSE_MOVED"] == True:
+			self.grid.mouse_click(pg.mouse.get_pos())
+
+		return pixinput.keys["QUIT_PRESSED"]
 
 	def main_loop(self):
 		quit = False
 		while not quit:
 			quit = self.input()
 
-			#draw events
+			# draw events
 			self.screen.blit(self.background, (0,0))
 			self.menu.draw(self.screen)
 			self.grid.draw(self.screen)
 
-			#FPS stuff
+			# FPS stuff
 			pg.display.flip()
 			milliseconds = self.clock.tick(FPS)
 			pg.display.set_caption("FPS: " + str(self.clock.get_fps()))
