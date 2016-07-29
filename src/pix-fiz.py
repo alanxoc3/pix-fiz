@@ -9,7 +9,6 @@ from drop_down import DropDown
 import pygame as pg
 import sys
 
-
 FPS = 60
 
 class PixFiz(object):
@@ -21,21 +20,25 @@ class PixFiz(object):
 		self.clock = pg.time.Clock()
 		self.menu = Menu()
 		self.grid = Grid()
-		self.drop = DropDown()		
+		self.drop = DropDown()	
+
+	def input(self):
+		#key events
+		quit = False
+		for event in pg.event.get():
+			if event.type == pg.QUIT:
+				quit = True
+			elif event.type == pg.MOUSEBUTTONDOWN:
+				print "mouse button down"
+				print event.pos
+				self.grid.mouse_click(event.pos)
+
+		return quit
 
 	def main_loop(self):
-		self.mainLoop = True
-		while self.mainLoop:
-			
-			#key events
-			for event in pg.event.get():
-				if event.type == pg.QUIT:
-					self.mainLoop = False
-				elif event.type == pg.MOUSEBUTTONDOWN:
-					print "mouse button down"
-					print event.pos
-#					self.grid.mouse_click(event.pos)
-
+		quit = False
+		while not quit:
+			quit = self.input()
 
 			#draw events
 			self.screen.blit(self.background, (0,0))

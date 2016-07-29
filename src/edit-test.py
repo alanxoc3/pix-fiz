@@ -3,9 +3,9 @@
 # A test with the edit screen!
 
 from menu import Menu
+import canvas
 import pygame as pg
 import sys
-
 
 FPS = 60
 
@@ -13,12 +13,11 @@ class PixFiz(object):
 
 	def __init__(self):
 		pg.init()
+		self.room = canvas.Canvas((600, 400))
+
 		self.background = self.tile_bg()
 		self.screen = pg.display.set_mode((600,400))
 		self.clock = pg.time.Clock()
-
-
-		
 
 	def main_loop(self):
 		self.mainLoop = True
@@ -27,7 +26,9 @@ class PixFiz(object):
 				if event.type == pg.QUIT:
 					self.mainLoop = False
 			self.screen.blit(self.background, (0,0))
-
+			self.room.draw(self.screen)
+			
+			#self.screen.blit()
 
 			pg.display.flip()
 			milliseconds = self.clock.tick(FPS)
