@@ -5,7 +5,7 @@
 
 from menu import Menu
 from grid import Grid
-#from drop_down import DropDown
+from drop_down import DropDown
 import pygame as pg
 import sys
 
@@ -21,7 +21,7 @@ class PixFiz(object):
 		self.clock = pg.time.Clock()
 		self.menu = Menu()
 		self.grid = Grid()
-		
+		self.drop = DropDown()		
 
 	def main_loop(self):
 		self.mainLoop = True
@@ -41,6 +41,7 @@ class PixFiz(object):
 			self.screen.blit(self.background, (0,0))
 			self.menu.draw(self.screen)
 			self.grid.draw(self.screen)
+			self.drop.draw(self.screen)
 
 			#FPS stuff
 			pg.display.flip()
@@ -61,3 +62,4 @@ class PixFiz(object):
 if __name__ == "__main__":
 	p = PixFiz() #inits
 	p.main_loop() #loops
+	
