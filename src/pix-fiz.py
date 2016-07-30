@@ -30,7 +30,12 @@ class PixFiz(object):
 		pixinput.update_input()
 
 		if pixinput.keys["LEFT_CLICK_PRESSED"] == True:
-			self.grid.mouse_click(pg.mouse.get_pos())
+			
+			if max(pg.mouse.get_pos()) < 28:
+				self.drop.clicked_on()
+			else:
+				if (self.drop.open == False):
+					self.grid.mouse_click(pg.mouse.get_pos())			
 		if pixinput.keys["WHEEL_UP"] == True:
 			self.grid.zoom_in(pg.mouse.get_pos())
 		if pixinput.keys["WHEEL_DOWN"] == True:
