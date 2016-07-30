@@ -6,9 +6,11 @@
 from menu import Menu
 from grid import Grid
 from drop_down import DropDown
+from network import Network
 import pygame as pg
 import sys
 import pixinput
+
 
 FPS = 60
 
@@ -23,7 +25,7 @@ class PixFiz(object):
 		self.menu = Menu()
 		self.grid = Grid()
 		self.drop = DropDown()	
-
+		self.network = Network()
 
 	def input(self):
 		#key events
@@ -35,7 +37,8 @@ class PixFiz(object):
 				self.drop.clicked_on()
 			else:
 				if (self.drop.open == False):
-					self.grid.mouse_click(pg.mouse.get_pos())			
+					self.grid.mouse_click(pg.mouse.get_pos())
+					self.network.pass_message(str(pg.mouse.get_pos()))
 		if pixinput.keys["WHEEL_UP"] == True:
 			self.grid.zoom_in(pg.mouse.get_pos())
 		if pixinput.keys["WHEEL_DOWN"] == True:
@@ -57,6 +60,8 @@ class PixFiz(object):
 			self.menu.draw(self.screen)
 			self.grid.draw(self.screen)
 			self.drop.draw(self.screen)
+			self.network.listen()
+			
 
 			# FPS stuff
 			pg.display.flip()
